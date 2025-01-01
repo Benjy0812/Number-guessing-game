@@ -2,10 +2,11 @@ import random
 import os
 
 
-def clear():
-
-    if os.name == 'nt':
-        os.system('cls')
+def clear_console():
+    if os.name == "nt":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 
 while True:
@@ -26,6 +27,6 @@ while True:
     user_continue = input("Enter Here: ").upper()
 
     if user_continue == "N":
-        clear()
+        clear_console()
         print("Good bye")
         break
