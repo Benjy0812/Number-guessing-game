@@ -1,31 +1,33 @@
 import random
-import os
 
 
-def clear():
+def guessing_game():
+    while True:
+        print("\nThis program outputs a random number between 1 and 10.")
 
-    if os.name == 'nt':
-        os.system('cls')
+        try:
+            guess = int(input("Write your guess here: "))
+            if guess < 1 or guess > 10:
+                print("Please guess a number between 1 and 10.")
+                continue
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 10.")
+            continue
+
+        rand = random.randint(1, 10)
+
+        if guess == rand:
+            print(f"🎉 You guessed right! It was {rand}.")
+        else:
+            print(f"❌ Wrong! The number was {rand}.")
+
+        user_continue = input("Do you wish to continue? "
+                              "(yes/no): ").strip().lower()
+        if user_continue == "no":
+            print("Thanks for playing! Goodbye!")
+            break
+        elif user_continue != "yes":
+            print("Invalid input. Please enter 'y' to continue or 'no' to exit.")
 
 
-while True:
-
-    print("This program outputs a random number between 1 and 10")
-    print("Guess a number between 1 and 10")
-
-    guess = int(input("Write you guess here: "))
-
-    rand = random.randint(1, 10)
-
-    if guess == rand:
-        print(f"You guessed right it was {rand}")
-    else:
-        print(f"Wrong the number was {rand}")
-
-    print("Do you wish to continue? Y/N")
-    user_continue = input("Enter Here: ").upper()
-
-    if user_continue == "N":
-        clear()
-        print("Good bye")
-        break
+guessing_game()
