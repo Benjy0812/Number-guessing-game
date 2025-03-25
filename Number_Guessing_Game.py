@@ -21,8 +21,7 @@ def guessing_game():
         else:
             print(f"❌ Wrong! The number was {rand}.")
 
-        user_continue = input("Do you wish to continue? "
-                              "(yes/no): ").strip().lower()
+        user_continue = input("Do you wish to continue? " "(yes/no): ").strip().lower()
         if user_continue == "no":
             print("Thanks for playing! Goodbye!")
             break
@@ -30,4 +29,5 @@ def guessing_game():
             print("Invalid input. Please enter 'y' to continue or 'no' to exit.")
 
 
-guessing_game()
+if __name__ == "__main__":
+    guessing_game()
